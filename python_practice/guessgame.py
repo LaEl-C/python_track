@@ -1,28 +1,40 @@
-"""Generate a random number between 1 and 9 (including 1 and 9). Ask the user to guess the number, then tell them whether they guessed too low, too high, or exactly right. (Hint: remember to use the user input lessons from the very first exercise)
-
-Extras:
-
-Keep the  game going until the user types “exit”
-Keep track of how many guesses the user has taken, and when the game ends, print this out."""
-
 def guess():
     import random
 
-    a = random.randint(1, 9)
+    while True:  # Outer loop for replay
+        a = random.randint(1, 9)
+        guess_counter = 0
 
-    while True:
-        b = input("Your guess: ")
-        try:
-            b = int(b)
-            if a > b:
-                print("Too low!")
-            elif a < b:
-                print("Too High!")
-            else:
-                print("You got it right!!!")
-                break
-        except:
-            print("Invalid entry. Integer Only")
-        
+        while True:  # Inner loop for guessing
+            b = input("Guess the Number (or 'exit' to quit): ")
+            
+            # Check for exit FIRST
+            if b.lower() == "exit":
+                print(f"You made {guess_counter} guesses before exiting.")
+                return  # Exit the entire function
+
+            try:
+                b = int(b)
+                guess_counter += 1  # Only count valid numbers
+
+                if a > b:
+                    print("Too low!")
+                elif a < b:
+                    print("Too high!")
+                else:
+                    print(f"You got it right in {guess_counter} guesses!!!")
+                    break  # Exit inner loop when correct
+
+            except ValueError:
+                print("Invalid entry. Please enter an integer or 'exit'.")
+
+        # Ask to play again
+        play_again = input("Play again? (y/n): ")
+        if play_again.lower() != 'y':
+            print("Thanks for playing!")
+            break  # Exit outer loop
+        else:
+            print("\n--- New Game Started! ---\n")
+            # Outer loop will restart with new random number and reset counter
 
 guess()
