@@ -19,7 +19,7 @@ def no_dups(dup_list):
     return new_list
 
 print(no_dups([1,2,2,3,4,6,7,8,5,6,4,6]))
-
+# These 2 are not ordered
 
 
 
