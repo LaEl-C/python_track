@@ -13,11 +13,27 @@ print(c)
 
 
 
-
-
-
 # seq= []
 # while a < 1000:
 #     a, b = b, a+b
 #     seq.append(a)
 # print(seq[:user_input])
+
+
+
+
+
+def fibonnaci(number):
+    if number <= 1:
+        return 1
+    return fibonnaci(number - 1) + fibonnaci(number - 2)
+# """fibonnaci(4)
+# = fibonnaci(3) + fibonnaci(2)
+# = (fibonnaci(2) + fibonnaci(1)) + (fibonnaci(1) + fibonnaci(0))
+# = ((fibonnaci(1) + fibonnaci(0)) + 1) + (1 + 1)
+# = ((1 + 1) + 1) + 2
+# = 3 + 2
+# = 5"""
+user_input = int(input("How many fibonnaci do you want to generate?: "))
+for number in range(user_input):
+    print(fibonnaci(number))
