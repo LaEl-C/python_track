@@ -8,3 +8,17 @@ Then I would see the string:
 
 shown back to me."""
 
+def reverse_word(sentence):
+    new_sentence = sentence.split()
+    new_sentence.reverse()
+    return " ".join(new_sentence)
+print (reverse_word("Mary had a little lamb"))
+
+
+#Or
+
+def reverse_words2(sentence):
+    return " ".join(sentence.split()[::-1])
+
+print(reverse_words2("Mary had a little lamb"))
+# lamb little a had Mary
