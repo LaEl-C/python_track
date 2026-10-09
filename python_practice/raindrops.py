@@ -1,0 +1,42 @@
+"""Raindrops."""
+def convert(number):
+    """
+    para: digit
+    return: string
+    """
+    res = ""
+    if number % 3 == 0:
+        res += "Pling"
+    if number % 5 == 0:
+        res += "Plang"
+    if number % 7 == 0:
+        res += "Plong"
+    if number % 3 != 0 and number % 5 != 0 and number % 7 != 0:
+        res += str(number)
+    return  res.strip()
+
+    # OR
+
+    # def convert(number):
+    # res = ""
+    # if number % 3 == 0:
+    #     res += "Pling"
+    # if number % 5 == 0:
+    #     res += "Plang"
+    # if number % 7 == 0:
+    #     res += "Plong"
+    # if not res:
+    #     res = str(number)
+    # return res
+
+    # OR
+
+    # def convert(number):
+    # sounds = []
+    # if number % 3 == 0:
+    #     sounds.append("Pling")
+    # if number % 5 == 0:
+    #     sounds.append("Plang")
+    # if number % 7 == 0:
+    #     sounds.append("Plong")
+    # return "".join(sounds) if sounds else str(number)
